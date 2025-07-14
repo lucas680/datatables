@@ -4,7 +4,7 @@ new DataTable("#table-list-users", {
   serverSide: true,
   //lengthChange: false, //número de itens por página
   language: {
-    url: "//cdn.datatables.net/plug-ins/2.3.2/i18n/pt-BR.json",
+    url: "https://cdn.datatables.net/plug-ins/2.3.2/i18n/pt-BR.json",
   },
 });
 
@@ -23,7 +23,7 @@ if (formUser) {
     const resposta = await dados.json();
     if (resposta["success"]) {
       document.getElementById("msgAlertErrorCad").innerHTML = "";
-      document.getElementById("msgAlertSuccess").innerHTML =
+      document.getElementById("msgAlert").innerHTML =
         resposta["message"];
         formUser.reset();
         fecharModalCard.hide();
@@ -39,4 +39,17 @@ if (formUser) {
 
 async function visUsuario(id){
     const dados = await fetch("./db/visualizar.php?id="+id);
+    const resposta = await dados.json();
+
+    if(resposta['success']){
+        const visModal = new bootstrap.Modal(document.getElementById("visUsuarioModal"));
+        document.getElementById("idUsuario").innerText = resposta['dados'].id;
+        document.getElementById("nomeUsuario").innerText = resposta['dados'].nome;
+        document.getElementById("salarioUsuario").innerText = resposta['dados'].salario;
+        document.getElementById("idadeUsuario").innerText = resposta['dados'].idade;
+        visModal.show();
+        document.getElementById("msgAlert").innerHTML = "";
+    }else{
+        document.getElementById("msgAlert").innerHTML = resposta['message'];
+    }
 }

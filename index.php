@@ -18,7 +18,7 @@
             <button type="button" class="btn btn-outline-success btn-sm"
                 data-bs-toggle="modal" data-bs-target="#cadUsuarioModal">Cadastrar</button>
         </div>
-        <span id="msgAlertSuccess"></span>
+        <span id="msgAlert"></span>
         <table id="table-list-users" class="display" style="width: 100%;">
             <thead>
                 <tr>
@@ -63,6 +63,32 @@
                         </div>
                         <button type="submit" class="btn btn-outline-success btn-sm" value="Cadastrar">Cadastrar</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="visUsuarioModal" tabindex="-1" aria-labelledby="visUsuarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="visUsuarioModalLabel">Detalhes do usuário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <dl class="row">
+                    <dt class="col-sm-3">ID</dt>
+                    <dd class="col-sm-9"><span id="idUsuario"></span></dd>
+
+                    <dt class="col-sm-3">Nome</dt>
+                    <dd class="col-sm-9"><span id="nomeUsuario"></span></dd>
+
+                    <dt class="col-sm-3">Salário</dt>
+                    <dd class="col-sm-9"><span id="salarioUsuario"></span></dd>
+
+                    <dt class="col-sm-3">Idade</dt>
+                    <dd class="col-sm-9"><span id="idadeUsuario"></span></dd>
+                  </dl>
                 </div>
             </div>
         </div>
