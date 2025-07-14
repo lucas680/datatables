@@ -68,6 +68,43 @@
         </div>
     </div>
 
+    <div class="modal fade" id="editUsuarioModal" tabindex="-1" aria-labelledby="editUsuarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUsuarioModalLabel">Editar usuário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" id="form-edit-usuario">
+                        <input type="hidden" name="editId" id="editId">
+
+                        <span id="msgAlertErrorEdit"></span>
+                        <div class="row mb-3">
+                            <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="editNome" class="form-control" id="editNome" placeholder="Nome completo">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="salario" class="col-sm-2 col-form-label">Salário</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="editSalario" class="form-control" id="editSalario" placeholder="Seu Salário">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="idade" class="col-sm-2 col-form-label">Idade</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="editIdade" class="form-control" id="editIdade" placeholder="Sua Idade">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-outline-warning btn-sm" value="Salvar">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="visUsuarioModal" tabindex="-1" aria-labelledby="visUsuarioModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -76,19 +113,19 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <dl class="row">
-                    <dt class="col-sm-3">ID</dt>
-                    <dd class="col-sm-9"><span id="idUsuario"></span></dd>
+                    <dl class="row">
+                        <dt class="col-sm-3">ID</dt>
+                        <dd class="col-sm-9"><span id="idUsuario"></span></dd>
 
-                    <dt class="col-sm-3">Nome</dt>
-                    <dd class="col-sm-9"><span id="nomeUsuario"></span></dd>
+                        <dt class="col-sm-3">Nome</dt>
+                        <dd class="col-sm-9"><span id="nomeUsuario"></span></dd>
 
-                    <dt class="col-sm-3">Salário</dt>
-                    <dd class="col-sm-9"><span id="salarioUsuario"></span></dd>
+                        <dt class="col-sm-3">Salário</dt>
+                        <dd class="col-sm-9"><span id="salarioUsuario"></span></dd>
 
-                    <dt class="col-sm-3">Idade</dt>
-                    <dd class="col-sm-9"><span id="idadeUsuario"></span></dd>
-                  </dl>
+                        <dt class="col-sm-3">Idade</dt>
+                        <dd class="col-sm-9"><span id="idadeUsuario"></span></dd>
+                    </dl>
                 </div>
             </div>
         </div>

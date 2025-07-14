@@ -70,7 +70,10 @@ while ($row_usuarios = $result_usuarios->fetch(PDO::FETCH_ASSOC)) {
     $registro[] = $nome;
     $registro[] = $salario;
     $registro[] = $idade;
-    $registro[] = '<button type="button" id="'.$id.'" onClick="visUsuario('.$id.')" class="btn btn-outline-primary">Visualizar</button>';
+    $registro[] = '<button type="button" id="vis'.$id.'" onClick="visUsuario('.$id.')" 
+    class="btn btn-outline-primary">Visualizar</button> 
+    <button type="button" id="edit'.$id.'" onClick="editUsuario('.$id.')" 
+    class="btn btn-outline-warning">Editar</button>';
     $dados[] = $registro;
 }
 
