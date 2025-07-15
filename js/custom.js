@@ -59,11 +59,10 @@ async function visUsuario(id) {
 }
 
 const editUsuarioModal = new bootstrap.Modal(
-    document.getElementById("editUsuarioModal")
-  );
-  
-async function editUsuario(id) {
+  document.getElementById("editUsuarioModal")
+);
 
+async function editUsuario(id) {
   const dados = await fetch("./db/visualizar.php?id=" + id);
   const resposta = await dados.json();
 
@@ -93,10 +92,14 @@ if (formEditUser) {
 
     const resposta = await dados.json();
     if (resposta["success"]) {
+      //exibe a mensagem
       document.getElementById("msgAlertErrorEdit").innerHTML = "";
       document.getElementById("msgAlert").innerHTML = resposta["message"];
+
+      //fecha modal de editar usuário
       editUsuarioModal.hide();
 
+      //atualiza lista de registros
       listarDatatables = $("#table-list-users").DataTable();
       listarDatatables.draw();
     } else {
@@ -104,4 +107,20 @@ if (formEditUser) {
         resposta["message"];
     }
   });
+}
+
+async function deleteUsuario(id) {
+  var confirmar = confirm("Deseja realmente deletar este usuário?");
+
+  if (confirmar) {
+    const dados = await fetch("./db/deleteUsuario.php?id=" + id);
+    const resposta = await dados.json();
+
+    document.getElementById("msgAlert").innerHTML = resposta["message"];
+    if (resposta["success"]) {
+      //atualiza lista de registros
+      listarDatatables = $("#table-list-users").DataTable();
+      listarDatatables.draw();
+    }
+  }
 }
